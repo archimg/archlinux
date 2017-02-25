@@ -5,5 +5,6 @@ install:
   - ./download
 script:
   - ./build
+  - ./tag
 after_success:
   - '[ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ] && docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && ./push'

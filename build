@@ -1,7 +1,5 @@
 #!/bin/bash -x
 
-ORGA=archimg
-
 for repo in base base-devel; do
-	docker build -f Dockerfile.${repo} -t ${ORGA}/${repo} .
+	docker build -f Dockerfile.${repo} -t archimg-${repo} .
 done

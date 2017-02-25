@@ -5,3 +5,5 @@ ORGA=archimg
 for repo in base base-devel; do
 	docker push ${ORGA}/${repo}
 done
+
+docker push base/archlinux
