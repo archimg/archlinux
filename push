@@ -7,3 +7,4 @@ for repo in base base-devel; do
 done
 
 docker push base/archlinux
+docker push base/devel
