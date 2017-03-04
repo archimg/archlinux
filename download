@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-TAR_DATE="$(date +'%Y.%m').01"
+TAR_DATE="$(date --date="${1:-"now"}" +'%Y.%m').01"
 ARCHLINUX_ARCH=x86_64
 
 mkdir -p arch-rootfs

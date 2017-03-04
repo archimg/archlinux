@@ -2,7 +2,9 @@ language: generic
 services:
   - docker
 install:
-  - ./download
+  # On 1. day, still use last month's tarfile,
+  # the latest one may not be on the mirror yet
+  - ./download yesterday
 script:
   - ./build
   - ./tag
