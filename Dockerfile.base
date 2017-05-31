@@ -11,7 +11,7 @@ RUN    pacman-key --init \
     && pacman --noconfirm -Syw ca-certificates-utils \
     && rm /etc/ssl/certs/ca-certificates.crt \
     && pacman --noconfirm -S ca-certificates-utils \
-    && pacman --noconfirm -Syu base \
+    && pacman --noconfirm -Syu --needed base \
     && chmod  755 /etc \
     && chmod  755 /etc/pacman.d \
     && chmod  644 /etc/pacman.d/mirrorlist \
