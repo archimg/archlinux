@@ -1,5 +1,5 @@
 FROM scratch
-MAINTAINER ArchLinux Dockerimage Maintainers
+LABEL maintainer "ArchLinux Dockerimage Maintainers"
 
 ADD arch-rootfs/ /
 ADD additional/ /
