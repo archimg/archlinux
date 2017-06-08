@@ -3,6 +3,7 @@ sudo: required
 services:
   - docker
 install:
+  - sudo pip install https://github.com/goldmann/docker-squash/archive/master.zip
   # On 1. day, still use last month's tarfile,
   # the latest one may not be on the mirror yet
   - ./download yesterday

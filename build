@@ -2,4 +2,5 @@
 
 for repo in base base-devel; do
 	docker build -f Dockerfile.${repo} -t archimg-${repo} .
+	docker-squash -t archimg-${repo} archimg-${repo}
 done

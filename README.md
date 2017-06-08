@@ -6,6 +6,12 @@ Docker images for ArchLinux.
 
 Images get built by TravisCI cronjob on publicly visible structure.
 
+## Building
+
+### Prerequisites
+
+- [docker-squash](https://github.com/goldmann/docker-squash/)
+
 ## Issues and Improvements
 
 If you want to contribute, get to the [issues-section of this repository](https://github.com/archimg/archlinux/issues).
