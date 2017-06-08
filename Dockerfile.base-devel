@@ -6,11 +6,6 @@ ADD additional/ /
 
 RUN    pacman-key --init \
     && pacman-key --populate archlinux \
-    # manual intervention in March 2017
-    # fixes for ca-certificates package-update
-    && pacman --noconfirm -Syw ca-certificates-utils \
-    && rm /etc/ssl/certs/ca-certificates.crt \
-    && pacman --noconfirm -S ca-certificates-utils \
     && pacman --noconfirm -Syu --needed base-devel \
     && chmod  755 /etc \
     && chmod  755 /etc/pacman.d \
