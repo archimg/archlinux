@@ -1,0 +1,6 @@
+#!/bin/bash -ex
+
+for repo in base base-devel; do
+	docker build -f Dockerfile-for-update -t archimg-${repo}-latest .
+	docker-squash -t archimg-${repo}-latest archimg-${repo}-latest
+done
