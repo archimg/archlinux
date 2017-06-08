@@ -7,14 +7,6 @@ ADD additional/ /
 RUN    pacman-key --init \
     && pacman-key --populate archlinux \
     && pacman --noconfirm -Syu --needed base \
-    && chmod  755 /etc \
-    && chmod  755 /etc/pacman.d \
-    && chmod  644 /etc/pacman.d/mirrorlist \
-    && chmod 1777 /tmp \
-    && chmod 2755 /var/log/journal \
-    && chmod 2755 /var/log/journal/remote \
-    && chmod 1755 /var/spool/mail \
-    && chmod 1777 /var/tmp \
     && rm -f \
       /var/cache/pacman/pkg/* \
       /var/lib/pacman/sync/* \

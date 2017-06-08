@@ -1,4 +1,5 @@
 language: generic
+sudo: required
 services:
   - docker
 install:
@@ -6,7 +7,7 @@ install:
   # the latest one may not be on the mirror yet
   - ./download yesterday
 script:
-  - ./build
+  - sudo ./build
   - ./tag
 after_success:
   - '[ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ] && docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && ./push'
