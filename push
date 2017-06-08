@@ -3,8 +3,12 @@
 ORGA=archimg
 
 for repo in base base-devel; do
+	docker tag archimg-${repo} ${ORGA}/${repo}
 	docker push ${ORGA}/${repo}
 done
 
+# Manuals for base/ stuff
+docker tag archimg-base       base/archlinux
+docker tag archimg-base-devel base/devel
 docker push base/archlinux
 docker push base/devel
