@@ -1,14 +1,15 @@
 #!/bin/bash -ex
 
 ORGA=archimg
+TAR_DATE=${TAR_DATE:-$(date +'%Y.%m.01')}
 
 for repo in base base-devel; do
-	docker tag archimg-${repo} ${ORGA}/${repo}
-	docker push ${ORGA}/${repo}
+	docker tag archimg-${repo}-currenttar ${ORGA}/${repo}:${TAR_DATE}
+	docker push ${ORGA}/${repo}:${TAR_DATE}
 done
 
 # Manuals for base/ stuff
-docker tag archimg-base       base/archlinux
-docker tag archimg-base-devel base/devel
-docker push base/archlinux
-docker push base/devel
+docker tag archimg-base-currenttar       base/archlinux:${TAR_DATE}
+docker tag archimg-base-devel-currenttar base/devel:${TAR_DATE}
+docker push base/archlinux:${TAR_DATE}
+docker push base/devel:${TAR_DATE}

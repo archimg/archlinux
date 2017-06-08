@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ORGA=archimg
+TAR_DATE=${TAR_DATE:-$(date +'%Y.%m.01')}
+
+for repo in base base-devel; do
+	docker pull ${ORGA}/${repo}:${TAR_DATE}
+	docker tag ${ORGA}/${repo}:${TAR_DATE} archimg-${repo}-currenttar
+done
