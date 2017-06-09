@@ -1,7 +1,7 @@
-FROM archimg-base-currenttar
+FROM archimg-base-devel-currenttar
 LABEL maintainer "ArchLinux Dockerimage Maintainers"
 
-RUN    pacman --noconfirm -Syu --needed base \
+RUN    pacman --noconfirm -Syu \
     && rm -f \
       /var/cache/pacman/pkg/* \
       /var/lib/pacman/sync/* \
