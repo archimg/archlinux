@@ -8,7 +8,7 @@ install:
   # the latest one may not be on the mirror yet
   - export TAR_DATE=$(date --date=yesterday +'%Y.%m.01')
 script:
-  - ./pull || sudo ./build
+  - ./pull || sudo -H ./build
   - ./update
 after_success:
   - '[ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ] && docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && ./push'
