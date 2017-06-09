@@ -6,7 +6,7 @@ TAR_DATE=${TAR_DATE:-$(date +'%Y.%m.01')}
 ARCHLINUX_ARCH=x86_64
 ARCHLINUX_MIRR=https://archive.archlinux.org/iso
 
-mkdir -p arch-rootfs
+mkdir -p Dockerfiles/basement/arch-rootfs
 mkdir -p tarballs/${TAR_DATE}
 
 # Download tarball, signature and sha1sums.txt
@@ -28,10 +28,10 @@ gpg --keyserver-options auto-key-retrieve \
 tar xz \
 	-f tarballs/${TAR_DATE}/archlinux-bootstrap-${TAR_DATE}-${ARCHLINUX_ARCH}.tar.gz \
 	--strip-components=1 \
-	--directory=./arch-rootfs \
+	--directory=./Dockerfiles/basement/arch-rootfs \
 	root.${ARCHLINUX_ARCH}/
 
 for repo in base base-devel; do
-	docker build -f Dockerfile.${repo} -t archimg-${repo}-currenttar .
+	docker build -f ./Dockerfiles/basement/Dockerfile.${repo} -t archimg-${repo}-currenttar ./Dockerfiles/basement
 	docker-squash -t archimg-${repo}-currenttar archimg-${repo}-currenttar
 done
