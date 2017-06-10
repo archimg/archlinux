@@ -32,6 +32,7 @@ tar xz \
 	root.${ARCHLINUX_ARCH}/
 
 for repo in base base-devel; do
-	docker build -f ./Dockerfiles/basement/Dockerfile.${repo} -t archimg-${repo}-currenttar ./Dockerfiles/basement
-	docker-squash -t archimg-${repo}-currenttar archimg-${repo}-currenttar
+	IFS=: read repo tag <<< $repo
+	docker build -f ./Dockerfiles/basement/Dockerfile.${repo}${tag:+_$tag} -t archimg-${repo}${tag:+_$tag}-currenttar ./Dockerfiles/basement
+	docker-squash -t archimg-${repo}${tag:+_$tag}-currenttar archimg-${repo}${tag:+_$tag}-currenttar
 done

@@ -1,5 +1,6 @@
 #!/bin/bash -ex
 
 for repo in base base-devel; do
-	docker build -f ./Dockerfiles/updates/Dockerfile.${repo} -t archimg-${repo}-latest ./Dockerfiles/updates
+	IFS=: read repo tag <<< $repo
+	docker build -f ./Dockerfiles/updates/Dockerfile.${repo}${tag:+_$tag} -t archimg-${repo}${tag:+_$tag}-latest ./Dockerfiles/updates
 done
