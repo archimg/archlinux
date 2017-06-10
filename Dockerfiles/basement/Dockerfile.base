@@ -7,7 +7,31 @@ ADD additional/ /
 RUN    pacman-key --init \
     && pacman-key --populate archlinux \
     && pacman --noconfirm -Syu --needed base \
-    && rm -f \
+    # remove unneccessary packages again
+    && pacman --noconfirm -Rsc \
+         cryptsetup \
+         device-mapper \
+         dhcpcd \
+         iproute2 \
+         jfsutils \
+         linux \
+         lvm2 \
+         man-db \
+         man-pages \
+         mdadm \
+         nano \
+         netctl \
+         openresolv \
+         pciutils \
+         pcmciautils \
+         reiserfsprogs \
+         s-nail \
+         systemd-sysvcompat \
+         usbutils \
+         vi \
+         xfsprogs \
+    && rm -rf \
+      /usr/share/man/* \
       /var/cache/pacman/pkg/* \
       /var/lib/pacman/sync/* \
       /README \
