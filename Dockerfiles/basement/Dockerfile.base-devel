@@ -6,7 +6,7 @@ ADD additional/ /
 
 RUN    pacman-key --init \
     && pacman-key --populate archlinux \
-    && pacman --noconfirm -Syu --needed base-devel \
+    && pacman --noconfirm -Syu --needed base base-devel \
     && rm -f \
       /var/cache/pacman/pkg/* \
       /var/lib/pacman/sync/* \
