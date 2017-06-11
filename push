@@ -3,11 +3,12 @@
 ORGA=archimg
 TAR_DATE=${TAR_DATE:-$(date +'%Y.%m.01')}
 
-for repo in base base-devel; do
-	docker tag archimg-${repo}-currenttar ${ORGA}/${repo}:${TAR_DATE}
-	docker tag archimg-${repo}-latest ${ORGA}/${repo}
-	docker push ${ORGA}/${repo}:${TAR_DATE}
-	docker push ${ORGA}/${repo}
+for repo in base base:full base-devel; do
+	IFS=: read repo tag <<< $repo
+	docker tag archimg-${repo}${tag:+_$tag}-currenttar ${ORGA}/${repo}:${tag:+$tag-}${TAR_DATE}
+	docker tag archimg-${repo}${tag:+_$tag}-latest ${ORGA}/${repo}${tag:+:$tag}
+	docker push ${ORGA}/${repo}:${tag:+$tag-}${TAR_DATE}
+	docker push ${ORGA}/${repo}${tag:+:$tag}
 done
 
 # Manuals for base/ stuff
