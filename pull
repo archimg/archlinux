@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ex
 
 ORGA=archimg
 TAR_DATE=${TAR_DATE:-$(date +'%Y.%m.01')}
