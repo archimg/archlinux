@@ -2,5 +2,5 @@
 
 for repo in base base:full base-devel; do
 	IFS=: read repo tag <<< $repo
-	docker build -f ./Dockerfiles/updates/Dockerfile.${repo}${tag:+_$tag} -t archimg-${repo}${tag:+_$tag}-latest ./Dockerfiles/updates
+	docker build -f ./Dockerfiles/updates/Dockerfile.${repo}${tag:+_$tag} -t ${ORGA}-${repo}${tag:+_$tag}-latest ./Dockerfiles/updates
 done

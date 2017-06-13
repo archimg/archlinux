@@ -5,17 +5,17 @@ TAR_DATE=${TAR_DATE:-$(date +'%Y.%m.01')}
 
 for repo in base base:full base-devel; do
 	IFS=: read repo tag <<< $repo
-	docker tag archimg-${repo}${tag:+_$tag}-currenttar ${ORGA}/${repo}:${tag:+$tag-}${TAR_DATE}
-	docker tag archimg-${repo}${tag:+_$tag}-latest ${ORGA}/${repo}${tag:+:$tag}
+	docker tag ${ORGA}-${repo}${tag:+_$tag}-currenttar ${ORGA}/${repo}:${tag:+$tag-}${TAR_DATE}
+	docker tag ${ORGA}-${repo}${tag:+_$tag}-latest ${ORGA}/${repo}${tag:+:$tag}
 	docker push ${ORGA}/${repo}:${tag:+$tag-}${TAR_DATE}
 	docker push ${ORGA}/${repo}${tag:+:$tag}
 done
 
 # Manuals for base/ stuff
-docker tag archimg-base-currenttar       base/archlinux:${TAR_DATE}
-docker tag archimg-base-latest           base/archlinux
-docker tag archimg-base-devel-currenttar base/devel:${TAR_DATE}
-docker tag archimg-base-devel-latest     base/devel
+docker tag ${ORGA}-base-currenttar       base/archlinux:${TAR_DATE}
+docker tag ${ORGA}-base-latest           base/archlinux
+docker tag ${ORGA}-base-devel-currenttar base/devel:${TAR_DATE}
+docker tag ${ORGA}-base-devel-latest     base/devel
 docker push base/archlinux:${TAR_DATE}
 docker push base/archlinux
 docker push base/devel:${TAR_DATE}
