@@ -1,10 +1,33 @@
-# Basic ArchLinux images
+# Basic ArchLinux images [![Build Status](https://travis-ci.org/archimg/archlinux.svg?branch=master)](https://travis-ci.org/archimg/archlinux)
 
-[![Build Status](https://travis-ci.org/archimg/archlinux.svg?branch=master)](https://travis-ci.org/archimg/archlinux)
+Docker images for ArchLinux. Built daily by Travis CI on publicly visible infrastructure.
 
-Docker images for ArchLinux.
+## Running the images
 
-Images get built by TravisCI cronjob on publicly visible structure.
+The images are on [dockerhub](https://hub.docker.com/u/archimg/). Use the convenient `docker run`:
+
+    docker run --rm -ti archimg/base
+    docker run --rm -ti archimg/base-devel
+
+## Tags
+
+|         Repo         |  Tag   |  Update   |  Type   |                                                             Description                                                              |
+|:---------------------|:------:|:---------:|:-------:|:-------------------------------------------------------------------------------------------------------------------------------------|
+| base                 | latest | **daily** | minimal | most packages of base-group, except some big ones like [some big ones like `linux-firmware`](./Dockerfiles/basement/Dockerfile.base) |
+| base                 | full   | **daily** |   full  | all packages of base-group                                                                                                           |
+| base&#8209;devel     | latest | **daily** |   full  | all packages of base and base-devel-group                                                                                            |
+
+### Layer structure
+
+The image consists of 2 parts:
+
+- the _[basement layer](./Dockerfiles/basement)_, derived from the tarball (updated monthly)
+  - this layer has always its own tag in form of `YEAR.MONTH.01`
+  - It's discouraged to use this as your image base
+- the _[update layer](./Dockerfiles/updates)_, which only contains the updates (updated daily)
+  - this layer has always its own tag as latest
+
+This implies, that you get daily updates, but only have to download the actual change and not the full image.
 
 ## Issues and Improvements
 
@@ -20,25 +43,19 @@ Simply add the `TZ` environment-variable and define it with a valid timezone-val
 docker run -e TZ=Europe/Berlin archimg/base
 ```
 
-## Building
+## Building it yourself
 
 ### Prerequisites
 
 - [docker-squash](https://github.com/goldmann/docker-squash/)
 - sudo or root is absolutely neccessary to build the image from scratch
+  - if you use `./pull` instead of `./build`, sudo is not required
 
-## Internals
+### Building
 
-### Layers and Tags
+- Run either `sudo -H ./build` **OR** `./pull`
+  - If you run `sudo -H ./build`, it'll download the tarball and build the images from scratch **sudo required**
+  - If you run `./pull`, docker will download the images from dockerhub
+- Run `./update` to generate the `latest`-tags and update the images.
 
-**Use always the `latest`-tag for your image.**
-
-The image consists of 2 parts:
-
-- the _[basement layer](./Dockerfiles/basement)_ derived from the tarball (updated monthly)
-  - this layer has always its own tag in form of `YEAR.MONTH.01`
-  - It's discouraged to use this as your image base
-- the _[update layer](./Dockerfiles/updates)_, which only contains the updates (updated daily)
-  - this layer has always its own tag as latest
-
-This implies, that you get daily updates, but only have to download the actual change and not the full image.
+If you want to push the images, run `./push`. *But be aware you have no push access to the repos!*
