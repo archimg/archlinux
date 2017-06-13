@@ -31,8 +31,10 @@ tar xz \
 	--directory=./Dockerfiles/basement/arch-rootfs \
 	root.${ARCHLINUX_ARCH}/
 
-for repo in base base:full base-devel; do
-	IFS=: read repo tag <<< $repo
+for repo in base::squash base:full:squash base-devel::nosquash; do
+	IFS=: read repo tag opt <<< $repo
 	docker build -f ./Dockerfiles/basement/Dockerfile.${repo}${tag:+_$tag} -t archimg-${repo}${tag:+_$tag}-currenttar ./Dockerfiles/basement
-	docker-squash -t archimg-${repo}${tag:+_$tag}-currenttar archimg-${repo}${tag:+_$tag}-currenttar
+	if [ "${opt}" == "squash" ]; then
+		docker-squash -t archimg-${repo}${tag:+_$tag}-currenttar archimg-${repo}${tag:+_$tag}-currenttar
+	fi
 done
