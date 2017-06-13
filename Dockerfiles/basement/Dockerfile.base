@@ -18,7 +18,10 @@ RUN : \
          device-mapper \
          dhcpcd \
          iproute2 \
+         iptables \
          jfsutils \
+         libpcap \
+         libusb \
          linux \
          lvm2 \
          man-db \
@@ -32,6 +35,7 @@ RUN : \
          reiserfsprogs \
          s-nail \
          systemd-sysvcompat \
+         systemd \
          usbutils \
          vi \
          xfsprogs \
