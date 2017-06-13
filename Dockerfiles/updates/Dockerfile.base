@@ -1,4 +1,4 @@
-FROM archimg-base-currenttar
+FROM archimg/base:currenttar
 LABEL maintainer "ArchLinux Dockerimage Maintainers"
 
 RUN    pacman --noconfirm -Syu \

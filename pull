@@ -6,5 +6,6 @@ TAR_DATE=${TAR_DATE:-$(date +'%Y.%m.01')}
 for repo in base base:full base-devel; do
 	IFS=: read repo tag <<< $repo
 	docker pull ${ORGA}/${repo}:${tag:+$tag-}${TAR_DATE}
-	docker tag  ${ORGA}/${repo}:${tag:+$tag-}${TAR_DATE} ${ORGA}-${repo}${tag:+_$tag}-currenttar
+	# alias the image with name currenttar instead of actual date to get referenced by static dockerfiles
+	docker tag  ${ORGA}/${repo}:${tag:+$tag-}${TAR_DATE} ${ORGA}/${repo}:${tag:+$tag-}currenttar
 done

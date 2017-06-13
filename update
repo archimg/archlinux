@@ -1,6 +1,9 @@
 #!/bin/bash -ex
 
+ORGA=archimg
+TAR_DATE=${TAR_DATE:-$(date +'%Y.%m.01')}
+
 for repo in base base:full base-devel; do
 	IFS=: read repo tag <<< $repo
-	docker build -f ./Dockerfiles/updates/Dockerfile.${repo}${tag:+_$tag} -t ${ORGA}-${repo}${tag:+_$tag}-latest ./Dockerfiles/updates
+	docker build -f ./Dockerfiles/updates/Dockerfile.${repo}${tag:+_$tag} -t ${ORGA}/${repo}${tag:+:$tag} ./Dockerfiles/updates
 done
