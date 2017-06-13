@@ -4,7 +4,7 @@ LABEL maintainer "ArchLinux Dockerimage Maintainers"
 ADD arch-rootfs/ /
 ADD additional/ /
 
-RUN \
+RUN : \
     # chmod /etc, because during add, there is /etc/resolv.conf
     # mounted (and therefore /etc/ created with the umask of the host)
     # if the umask is not ``
