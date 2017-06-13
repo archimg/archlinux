@@ -9,3 +9,5 @@ RUN    pacman-key --init \
       /var/lib/pacman/sync/* \
       /README \
       /etc/pacman.d/mirrorlist.pacnew
+
+CMD ["/bin/bash"]

@@ -6,3 +6,5 @@ RUN    pacman --noconfirm -Syu \
       /var/cache/pacman/pkg/* \
       /var/lib/pacman/sync/* \
       /etc/pacman.d/mirrorlist.pacnew
+
+CMD ["/bin/bash"]
