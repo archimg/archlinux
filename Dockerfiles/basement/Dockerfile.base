@@ -4,7 +4,12 @@ LABEL maintainer "ArchLinux Dockerimage Maintainers"
 ADD arch-rootfs/ /
 ADD additional/ /
 
-RUN    pacman-key --init \
+RUN \
+    # chmod /etc, because during add, there is /etc/resolv.conf
+    # mounted (and therefore /etc/ created with the umask of the host)
+    # if the umask is not ``
+    && chmod 755 /etc \
+    && pacman-key --init \
     && pacman-key --populate archlinux \
     && pacman --noconfirm -Syu --needed base \
     # remove unneccessary packages again
