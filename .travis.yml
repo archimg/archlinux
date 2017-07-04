@@ -7,6 +7,10 @@ install:
   # On 1. day, still use last month's tarfile,
   # the latest one may not be on the mirror yet
   - export TAR_DATE=$(date --date=yesterday +'%Y.%m.01')
+  - sudo mkdir -p /root/.gnupg
+  - echo no-greeting                              | sudo tee -a /root/.gnupg/gpg.conf
+  - echo keyserver hkp://pool.sks-keyservers.net  | sudo tee -a /root/.gnupg/gpg.conf
+  - echo keyserver-options timeout=10             | sudo tee -a /root/.gnupg/gpg.conf
 script:
   - ./pull || sudo -H ./build
   - ./update
