@@ -16,6 +16,7 @@ The images are on [dockerhub](https://hub.docker.com/u/archimg/). Use the conven
 | base                 | latest | **daily** | minimal | most packages of base-group, except some big ones like [some big ones like `linux-firmware`](./Dockerfiles/basement/Dockerfile.base) |
 | base                 | full   | **daily** |   full  | all packages of base-group                                                                                                           |
 | base&#8209;devel     | latest | **daily** |   full  | all packages of base and base-devel-group                                                                                            |
+**The monthly tagged images aren't supposed to be used in production.** ArchLinux is a rolling release distro and [partial upgrades are unsupported there](https://wiki.archlinux.org/index.php?title=System_maintenance#Partial_upgrades_are_unsupported). It requires you to always do a full system upgrade, so it wouldn't make any difference to use the `latest` tag.
 
 ### Layer structure
 
