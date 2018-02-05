@@ -4,6 +4,8 @@ services:
   - docker
 install:
   - sudo pip install https://github.com/goldmann/docker-squash/archive/master.zip
+  # Force the 2.x release of docker, as docker-squash is currently incompatible (2018-02-05)
+  - sudo pip install "docker<3.0.0"
   # On 1. day, still use last month's tarfile,
   # the latest one may not be on the mirror yet
   - export TAR_DATE=$(date --date=yesterday +'%Y.%m.01')
