@@ -25,7 +25,7 @@ The image consists of two parts:
 
 - the _[basement layer](./Dockerfiles/basement)_, derived from the tarball (updated monthly)
   - this layer has always its own tag in form of `YEAR.MONTH.01`
-  - It's discouraged to use this as your image base
+  - it's discouraged to use this as your base image
 - the _[update layer](./Dockerfiles/updates)_, which only contains the updates (updated daily)
   - this layer has always its own tag as latest
 
