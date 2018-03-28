@@ -1,6 +1,6 @@
-# Basic ArchLinux images [![Build Status](https://travis-ci.org/archimg/archlinux.svg?branch=master)](https://travis-ci.org/archimg/archlinux)
+# Basic Arch Linux images [![Build Status](https://travis-ci.org/archimg/archlinux.svg?branch=master)](https://travis-ci.org/archimg/archlinux)
 
-Docker images for ArchLinux. Built daily by Travis CI on publicly visible infrastructure.
+Docker images for Arch Linux. Built daily by Travis CI on publicly visible infrastructure.
 
 ## Running the images
 
@@ -17,7 +17,7 @@ The images are on [dockerhub](https://hub.docker.com/u/archimg/). Use the conven
 | base                 | full   | **daily** |   full  | all packages of base-group                                                                                                           |
 | base&#8209;devel     | latest | **daily** |   full  | all packages of base and base-devel-group                                                                                            |
 
-**The monthly tagged images aren't supposed to be used in production.** ArchLinux is a rolling release distro and [partial upgrades are unsupported there](https://wiki.archlinux.org/index.php?title=System_maintenance#Partial_upgrades_are_unsupported). It requires you to always do a full system upgrade, so it wouldn't make any difference to use the `latest` tag.
+**The monthly tagged images aren't supposed to be used in production.** Arch Linux is a rolling release distro and [partial upgrades are unsupported there](https://wiki.archlinux.org/index.php?title=System_maintenance#Partial_upgrades_are_unsupported). It requires you to always do a full system upgrade, so it wouldn't make any difference to use the `latest` tag.
 
 ### Layer structure
 
