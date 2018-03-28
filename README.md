@@ -13,7 +13,7 @@ The images are on [dockerhub](https://hub.docker.com/u/archimg/). Use the conven
 
 |         Repo         |  Tag   |  Update   |  Type   |                                                             Description                                                              |
 |:---------------------|:------:|:---------:|:-------:|:-------------------------------------------------------------------------------------------------------------------------------------|
-| base                 | latest | **daily** | minimal | most packages of base-group, except some big ones like [some big ones like `linux-firmware`](./Dockerfiles/basement/Dockerfile.base) |
+| base                 | latest | **daily** | minimal | most packages of base-group, except some big ones like [`linux-firmware`](./Dockerfiles/basement/Dockerfile.base)                    |
 | base                 | full   | **daily** |   full  | all packages of base-group                                                                                                           |
 | base&#8209;devel     | latest | **daily** |   full  | all packages of base and base-devel-group                                                                                            |
 
