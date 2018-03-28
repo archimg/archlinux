@@ -4,7 +4,7 @@ Docker images for Arch Linux. Built daily by Travis CI on publicly visible infra
 
 ## Running the images
 
-The images are on [dockerhub](https://hub.docker.com/u/archimg/). Use the convenient `docker run`:
+The images are on [Docker Hub](https://hub.docker.com/u/archimg/). Use the convenient `docker run`:
 
     docker run --rm -ti archimg/base
     docker run --rm -ti archimg/base-devel
