@@ -35,7 +35,7 @@ This implies, that you get daily updates, but only have to download the actual c
 
 If you want to contribute, get to the [issues-section of this repository](https://github.com/archimg/archlinux/issues).
 
-## Common Hurdles
+## Common hurdles
 
 ### Setting the timezone
 
