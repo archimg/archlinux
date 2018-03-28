@@ -21,7 +21,7 @@ The images are on [Docker Hub](https://hub.docker.com/u/archimg/). Use the conve
 
 ### Layer structure
 
-The image consists of 2 parts:
+The image consists of two parts:
 
 - the _[basement layer](./Dockerfiles/basement)_, derived from the tarball (updated monthly)
   - this layer has always its own tag in form of `YEAR.MONTH.01`
