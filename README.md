@@ -31,7 +31,7 @@ The image consists of two parts:
 
 This implies, that you get daily updates, but only have to download the actual change and not the full image.
 
-## Issues and Improvements
+## Issues and improvements
 
 If you want to contribute, get to the [issues-section of this repository](https://github.com/archimg/archlinux/issues).
 
