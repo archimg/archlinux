@@ -56,7 +56,7 @@ docker run -e TZ=Europe/Berlin archimg/base
 ### Building
 
 - Run either `sudo -H ./build` **or** `./pull`
-  - If you run `sudo -H ./build`, it'll download the tarball and build the images from scratch **sudo required**
+  - If you run `sudo -H ./build`, it'll download the tarball and build the images from scratch **(sudo required)**
   - If you run `./pull`, docker will download the images from dockerhub
 - Run `./update` to generate the `latest`-tags and update the images.
 
