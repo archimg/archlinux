@@ -28,7 +28,6 @@ RUN : \
          netctl \
          openresolv \
          pciutils \
-         pcmciautils \
          reiserfsprogs \
          s-nail \
          systemd-sysvcompat \
